@@ -7,38 +7,109 @@
 
     <style>
         form{
-            width: 300px;
-            background-color:rgb(237, 212, 178);
-            border:2px solid grey;
-            margin:30px auto;
-            padding:20px;
+            width: 400px;
+            background-color: #fffaf4;
+            border: 2px solid #8d6e63;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
+
+        h1{
+            text-align: center;
+            font-family:cursive;
+            
+        }
+        
+        input[type="checkbox"] {
+           width:100%;
+           width: auto;
+           display: inline-block;
+         }
+        input [type="radio"]{
+            width:100%;
+            width: auto;
+            display: inline-block;
+        }
+        input[type="text"]{
+            width:100%;
+        } 
+        input[type="email"]{
+            width:100%;
+        }
+        input[type="number"]{
+            width:100%;
+        }
+
+        body{
+             margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5e6d3, #e8d5c0);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        button[type="submit"] {
+         background-color: blue;
+         color: white;
+         }
+
+         #branch {
+          width: 100%;
+         }
+
+         .media {
+          width: 100%;
+          text-align: center;
+         }
+
+         .media iframe {
+          display: block;
+          margin: 20px auto;
+         }
     </style>
 </head>
 <body>
-    <h2>Student's form</h2>
+    <h1><i><u>Student's form</i></u></h1>
     <form action="/register" method="post">
         <label for="fullname">Name:</label>
+        <br>
         <input type="text" id="fullname" name="fullname" placeholder="enter name">
         <br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="enter email">
+        <br>
+        <input type="email" id="email" name="email" placeholder="abc@gmail.com">
+        <br>
+        <label for="age">Age:</label>
+        <br>
+        <input type="number" id="age" name="age" placeholder="enter age">
+        <br>
+        <label for="notes">Notes:</label>
+        <br>
+        <textarea id="notes" name="notes" rows="4" cols="40" placeholder="write something..."></textarea>
+        <br>
         <br>
         Gender
         <br>
         <input type="radio" value="male" id="male">
         <label for="">Male</label>
+        <br>
 
          <input type="radio" value="female" id="female">
         <label for="">female</label>
         <br>
+        <br>
 
          <label for="date">Date:</label>
+         <br>
         <input type="date">
+        <br>
         <br>
 
         <label for="file">upload file:</label>
+        <br>
         <input type="file">
+        <br>
         <br>
 
         <label for="branch">Branch:</label>
@@ -48,22 +119,27 @@
             <option value="ece">ECE</option>
         </select>
         <br>
+        <br>
 
         Select Skills:
         <br>
 
         <input type="checkbox" id="java">
         <label for="java">java</label>
+        <br>
 
         <input type="checkbox" id="javascript">
         <label for="javascript">javascript</label>
         <br>
+        <br>
 
         <button type="reset">reset</button>
-        <button type="submit">submit</button>
+        <button type="submit">Register</button>
     </form>
 
+    <div class="media">
     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d28283.667037993502!2d77.60445440000001!3d27.6103168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1787220065797!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/KRXsAGEYrwo?si=1H4XSFcmp_SgFgq-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 </body>
 </html>
