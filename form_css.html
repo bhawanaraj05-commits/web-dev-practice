@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning live</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .parent {
+            background-color: hotpink;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            margin: 30px;
+            padding: 10px;
+        }
+
+        #box1 {
+            background-color: plum;
+            font-size: 16px;
+            position: static;
+        }
+
+        #box2 {
+            background-color: aquamarine;
+            font-size: 20px;
+            position: relative;
+            left: 50px;
+            top: 20px;
+        }
+
+        #box3 {
+            background-color: aliceblue;
+            font-size: 20px;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+        }
+
+        #box4 {
+            background-color: rgb(198, 127, 76);
+            font-size: 25px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+        #box5 {
+            background-color: lightgreen;
+            font-size: 20px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        #box6 {
+            background-color: lightblue;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+
+        <div class="box" id="box1">
+            <h2>Box 1</h2>
+            <p>First box - Static</p>
+        </div>
+
+        <div class="box" id="box2">
+            <h2>Box 2</h2>
+            <p>Second box - Relative</p>
+        </div>
+
+        <div class="box" id="box3">
+            <h2>Box 3</h2>
+            <p>Third box - Absolute</p>
+        </div>
+
+        <div class="box" id="box4">
+            <h2>Box 4</h2>
+            <p>Fourth box - Fixed</p>
+        </div>
+        
+        <div class="box" id="box5">
+            <h2>Box 5</h2>
+            <p>Right Top</p>
+        </div>
+
+        <div class="box" id="box6">
+            <h2>Box 6</h2>
+            <p>Middle Box</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
