@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Animation</title>
+
+    <style>
+        .container {
+            height: 80vh;
+            width: 30vw;
+            background-color:bisque;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            /*background-color: blueviolet;*/
+            animation-name: movingBox;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+           /* animation: name duration timing-function delay iteration-count direction fill-mode;*/
+        }
+
+        @keyframes movingBox {
+            from {
+                background-color:plum;
+            }
+
+            to {
+                background-color: purple;
+                transform: translateX(900px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box"></div>
+    </div>
+
+</body>
+
+</html>
