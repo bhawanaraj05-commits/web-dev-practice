@@ -8,8 +8,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color:white;
+            background-color: white;
         }
+
         .heading {
             margin-left: 136px;
             margin-top: 50px;
@@ -21,21 +22,21 @@
             margin: 0;
         }
 
-    .movies {
-    display: grid;
-    grid-template-columns: 245px 245px;
-    gap: 30px 20px;
-    margin-left: 136px;
-    margin-top: 112px;
-}
+        .movies {
+            display: grid;
+            grid-template-columns: 245px 245px 245px;
+            gap: 30px 20px;
+            margin-left: 136px;
+            margin-top: 50px;
+        }
+
         .movie-card {
             width: 245px;
             border: 1px solid #ddd;
             border-radius: 18px;
             overflow: hidden;
             background-color: white;
-           /* transition: all 0.55;*/
-           opacity: 0;
+            opacity: 0;
             animation: CardAnimation 0.5s ease-in forwards;
         }
 
@@ -48,7 +49,7 @@
 
         .movie-info {
             padding: 14px;
-            height: 78px;
+            height: 125px;
         }
 
         .movie-info h2 {
@@ -58,82 +59,203 @@
         }
 
         .movie-info p {
-            margin: 0;
+            margin: 0 0 8px 0;
             font-size: 15px;
         }
 
-        .movie-card:nth-child(1){
+        .rating {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            color: #f5b400;
+            font-size: 17px;
+        }
+
+        .book-btn {
+            display: inline-block;
+            background-color: #222;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background-color: #444;
+        }
+
+        .movie-card:nth-child(1) {
             animation-delay: 0.1s;
         }
-        .movie-card:nth-child(2){
+
+        .movie-card:nth-child(2) {
             animation-delay: 0.2s;
         }
-        .movie-card:nth-child(3){
+
+        .movie-card:nth-child(3) {
             animation-delay: 0.3s;
         }
-        .movie-card:nth-child(4){
+
+        .movie-card:nth-child(4) {
             animation-delay: 0.4s;
         }
 
-        @keyframes CardAnimation{
-            from{
+        @keyframes CardAnimation {
+            from {
                 opacity: 0;
-                transform:translateY(-30px);
+                transform: translateY(-30px);
             }
-            to{
+
+            to {
                 opacity: 1;
-                transform: translateX(0px);
+                transform: translateY(0);
             }
-            
         }
 
+        #booking {
+            display: none;
+        }
+
+        .popup {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #booking:checked ~ .popup {
+            display: block;
+            animation: popupAnimation 3s ease forwards;
+        }
+
+        @keyframes popupAnimation {
+             from {
+             opacity: 0;
+              transform: translateX(50px);
+            }
+
+              to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+        }
     </style>
 </head>
 
 <body>
+
     <div class="heading">
         <h1>Top Hindi Movies Near You...</h1>
     </div>
 
+
     <div class="movies">
 
         <div class="movie-card">
+
             <img src="https://cdn.district.in/movies-assets/images/cinema/Hanuman-Ansh-3199a900-6975-11f1-a51b-91d242246b61.jpg">
 
             <div class="movie-info">
+
                 <h2>Hanuman Ansh</h2>
+
                 <p><b>U</b> | Hindi</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.5/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
+
             </div>
+
         </div>
 
         <div class="movie-card">
+
             <img src="https://cdn.district.in/movies-assets/images/cinema/toxiv%3Dc-8340c900-9c6f-11f1-97d4-73a32236137e.jpg">
 
             <div class="movie-info">
+
                 <h2>Toxic: A Fairy Tale for Grown-ups</h2>
+
                 <p><b>A</b> | Hindi and 1 more</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.2/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
+
             </div>
+
         </div>
-          
+
         <div class="movie-card">
+
             <img src="https://cdn.district.in/movies-assets/images/cinema/_Poster-d0d78f60-961a-11f1-8483-eb84b060bac3.jpg">
 
             <div class="movie-info">
+
                 <h2>Mirzapur: The Movie</h2>
+
                 <p><b>A</b> | Hindi</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.6/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
+
             </div>
+
         </div>
 
         <div class="movie-card">
+
             <img src="https://cdn.district.in/movies-assets/images/cinema/AW_Poster-18591030-9548-11f1-b29d-8985d3d6c644.jpg">
 
             <div class="movie-info">
+
                 <h2>Awarapan 2</h2>
+
                 <p><b>UA16+</b> | Hindi</p>
-           </div>
-       </div>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.3/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
+
+            </div>
+
+        </div>
 
     </div>
+
+    <input type="checkbox" id="booking">
+
+    <div class="popup">
+        ✓ Booking Confirmed
+    </div>
+
 
 </body>
 </html>
