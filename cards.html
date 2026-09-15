@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
 
     <style>
@@ -8,11 +10,117 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color:rgb(182, 182, 249);
+        }
+
+        .navbar {
+            height: 95px;
+            display: flex;
+            align-items: center;
             background-color: white;
+            border-bottom: 1px solid #eeeeee;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            width: 154px;
+            height: 58px;
+            border-right: 1px solid #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 35px;
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 32px;
+        }
+
+        .logo p {
+            margin: 4px 0 0;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            margin-left: 18px;
+            width: 270px;
+            flex-shrink: 0;
+        }
+
+        .location-icon {
+            font-size: 31px;
+            color: #6e52db;
+            margin-right: 13px;
+        }
+
+        .location-text h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .location-text p {
+            margin: 3px 0 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 38px;
+            flex: 1;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 13px 5px;
+        }
+
+        .nav-links .active {
+            background-color: #e2f1ff;
+            color: #9605ea;
+            padding: 13px 22px;
+            border-radius: 28px;
+        }
+
+        .search {
+            font-size: 32px;
+            color: #d564fe;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .profile {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #dfe2e7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 25px;
+            flex-shrink: 0;
         }
 
         .heading {
-            margin-left: 136px;
+            text-align: center;
             margin-top: 50px;
             margin-bottom: 25px;
         }
@@ -25,19 +133,26 @@
         .movies {
             display: grid;
             grid-template-columns: 245px 245px 245px;
-            gap: 30px 20px;
-            margin-left: 136px;
+            column-gap: 40px;
+            row-gap: 32px;
+            justify-content: center;
             margin-top: 50px;
         }
 
         .movie-card {
             width: 245px;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             border-radius: 18px;
             overflow: hidden;
             background-color: white;
             opacity: 0;
             animation: CardAnimation 0.5s ease-in forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
         }
 
         .movie-card img {
@@ -75,7 +190,7 @@
 
         .book-btn {
             display: inline-block;
-            background-color: #222;
+            background-color: #222222;
             color: white;
             padding: 8px 18px;
             border-radius: 6px;
@@ -84,7 +199,7 @@
         }
 
         .book-btn:hover {
-            background-color: #444;
+            background-color: #444444;
         }
 
         .movie-card:nth-child(1) {
@@ -134,18 +249,18 @@
 
         #booking:checked ~ .popup {
             display: block;
-            animation: popupAnimation 3s ease forwards;
+            animation: popupAnimation 1s ease forwards;
         }
 
         @keyframes popupAnimation {
-             from {
-             opacity: 0;
-              transform: translateX(50px);
+            from {
+                opacity: 0;
+                transform: translateX(50px);
             }
 
-              to {
-              opacity: 1;
-              transform: translateX(0);
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
@@ -153,21 +268,50 @@
 
 <body>
 
-    <div class="heading">
-        <h1>Top Hindi Movies Near You...</h1>
+    <div class="navbar">
+
+        <div class="logo">
+            <h2>district</h2>
+            <p>BY ZOMATO</p>
+        </div>
+
+        <div class="location">
+            <div class="location-icon">⌖</div>
+
+            <div class="location-text">
+                <h3>Gurugram</h3>
+                <p>Haryana</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">For you</a>
+            <a href="#">Dining</a>
+            <a href="#" class="active">Movies</a>
+            <a href="#">Events</a>
+            <a href="#">Comedy</a>
+            <a href="#">Stores</a>
+            <a href="#">Activities</a>
+            <a href="#">Play</a>
+        </div>
+
+        <div class="search">⌕</div>
+
+        <div class="profile">♙</div>
+
     </div>
 
+    <div class="heading">
+        <h1><b><u><i>Hindi Movies</i></u></b></h1>
+    </div>
 
     <div class="movies">
 
         <div class="movie-card">
-
             <img src="https://cdn.district.in/movies-assets/images/cinema/Hanuman-Ansh-3199a900-6975-11f1-a51b-91d242246b61.jpg">
 
             <div class="movie-info">
-
                 <h2>Hanuman Ansh</h2>
-
                 <p><b>U</b> | Hindi</p>
 
                 <div class="rating">
@@ -177,19 +321,14 @@
                 <label for="booking" class="book-btn">
                     Book Now
                 </label>
-
             </div>
-
         </div>
 
         <div class="movie-card">
-
             <img src="https://cdn.district.in/movies-assets/images/cinema/toxiv%3Dc-8340c900-9c6f-11f1-97d4-73a32236137e.jpg">
 
             <div class="movie-info">
-
                 <h2>Toxic: A Fairy Tale for Grown-ups</h2>
-
                 <p><b>A</b> | Hindi and 1 more</p>
 
                 <div class="rating">
@@ -199,19 +338,14 @@
                 <label for="booking" class="book-btn">
                     Book Now
                 </label>
-
             </div>
-
         </div>
 
         <div class="movie-card">
-
             <img src="https://cdn.district.in/movies-assets/images/cinema/_Poster-d0d78f60-961a-11f1-8483-eb84b060bac3.jpg">
 
             <div class="movie-info">
-
                 <h2>Mirzapur: The Movie</h2>
-
                 <p><b>A</b> | Hindi</p>
 
                 <div class="rating">
@@ -221,19 +355,14 @@
                 <label for="booking" class="book-btn">
                     Book Now
                 </label>
-
             </div>
-
         </div>
 
         <div class="movie-card">
-
             <img src="https://cdn.district.in/movies-assets/images/cinema/AW_Poster-18591030-9548-11f1-b29d-8985d3d6c644.jpg">
 
             <div class="movie-info">
-
                 <h2>Awarapan 2</h2>
-
                 <p><b>UA16+</b> | Hindi</p>
 
                 <div class="rating">
@@ -243,9 +372,7 @@
                 <label for="booking" class="book-btn">
                     Book Now
                 </label>
-
             </div>
-
         </div>
 
     </div>
@@ -255,7 +382,6 @@
     <div class="popup">
         ✓ Booking Confirmed
     </div>
-
 
 </body>
 </html>
