@@ -1,69 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color:white;
-        }
-        .heading {
-            margin-left: 136px;
-            margin-top: 50px;
-            margin-bottom: 25px;
-        }
-
-        .heading h1 {
-            font-size: 28px;
-            margin: 0;
-        }
-
-        .movies {
-            display: flex;
-            gap: 20px;
-            margin-left: 136px;
-            margin-top: 112px;
-        }
-
-        .movie-card {
-            width: 245px;
-            border: 1px solid #ddd;
-            border-radius: 18px;
-            overflow: hidden;
-            background-color: white;
-        }
-
-        .movie-card img {
-            width: 245px;
-            height: 325px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .movie-info {
-            padding: 14px;
-            height: 78px;
-        }
-
-        .movie-info h2 {
-            font-size: 20px;
-            margin: 0 0 6px 0;
-            line-height: 23px;
-        }
-
-        .movie-info p {
-            margin: 0;
-            font-size: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="district.css">
 </head>
-
+    
 <body>
+
+    <div class="navbar">
+
+        <div class="logo">
+            <h2>district</h2>
+            <p>BY ZOMATO</p>
+        </div>
+
+        <div class="location">
+            <div class="location-icon">⌖</div>
+
+            <div class="location-text">
+                <h3>Gurugram</h3>
+                <p>Haryana</p>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">For you</a>
+            <a href="#">Dining</a>
+            <a href="#" class="active">Movies</a>
+            <a href="#">Events</a>
+            <a href="#">Comedy</a>
+            <a href="#">Stores</a>
+            <a href="#">Activities</a>
+            <a href="#">Play</a>
+        </div>
+
+        <div class="search">⌕</div>
+
+        <div class="profile">♙</div>
+
+    </div>
+
     <div class="heading">
-        <h1>Top Hindi Movies Near You...</h1>
+        <h1><b><u><i>Hindi Movies</i></u></b></h1>
     </div>
 
     <div class="movies">
@@ -74,6 +55,14 @@
             <div class="movie-info">
                 <h2>Hanuman Ansh</h2>
                 <p><b>U</b> | Hindi</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.5/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
             </div>
         </div>
 
@@ -83,6 +72,14 @@
             <div class="movie-info">
                 <h2>Toxic: A Fairy Tale for Grown-ups</h2>
                 <p><b>A</b> | Hindi and 1 more</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.2/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
             </div>
         </div>
 
@@ -92,6 +89,14 @@
             <div class="movie-info">
                 <h2>Mirzapur: The Movie</h2>
                 <p><b>A</b> | Hindi</p>
+
+                <div class="rating">
+                    <span class="star">★</span> 4.6/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
             </div>
         </div>
 
@@ -101,10 +106,28 @@
             <div class="movie-info">
                 <h2>Awarapan 2</h2>
                 <p><b>UA16+</b> | Hindi</p>
-           </div>
-       </div>
 
+                <div class="rating">
+                    <span class="star">★</span> 4.3/5
+                </div>
+
+                <label for="booking" class="book-btn">
+                    Book Now
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <input type="checkbox" id="booking">
+
+    <div class="popup">
+        ✓ Booking Confirmed
     </div>
 
 </body>
 </html>
+
+
+
+
