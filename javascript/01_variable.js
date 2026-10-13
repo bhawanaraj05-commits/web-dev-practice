@@ -2,4 +2,4 @@ let userName="rohit"
 const email="user@gmail.com"
 var address="mathura"
 
-console.log(typeof var)
+console.log(typeof address)
