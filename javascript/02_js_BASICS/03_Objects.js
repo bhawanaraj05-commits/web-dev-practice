@@ -85,3 +85,15 @@ const { name, quantity } = booking.movie;
 console.log("Movie:", movie.name);
 console.log("Quantity:", quantity);
 console.log("Total Booking Amount:", booking.calculateTotalAmount());
+
+const obj1={a:1, b:2,}
+const obj2={c:4, d:5}
+
+//const obj3= Object.assign(obj1, obj2)
+
+const obj3= {...obj1, ...obj2} // using spread operator
+
+obj1.a="hello"
+console.log("obj1",obj1)
+
+console.log("obj3",obj3)
