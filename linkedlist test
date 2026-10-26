@@ -1,0 +1,251 @@
+// q1:
+
+public class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node build(int[] arr) {
+        Node dummy = new Node(0);
+        Node tail = dummy;
+
+        for (int x : arr) {
+            tail.next = new Node(x);
+            tail = tail.next;
+        }
+        return dummy.next;
+    }
+
+    static Node add(Node a, int scaleA, Node b, int scaleB) {
+        String s1 = digits(a);
+        String s2 = digits(b);
+
+        int scale = Math.max(scaleA, scaleB);
+
+        while (s1.length() <= scale) s1 = "0" + s1;
+        while (s2.length() <= scale) s2 = "0" + s2;
+
+        int integerA = s1.length() - scale;
+        int integerB = s2.length() - scale;
+
+        while (integerA < integerB) {
+            s1 = "0" + s1;
+            integerA++;
+        }
+
+        while (integerB < integerA) {
+            s2 = "0" + s2;
+            integerB++;
+        }
+
+        int i = s1.length() - 1;
+        int j = s2.length() - 1;
+        int carry = 0;
+
+        StringBuilder result = new StringBuilder();
+
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int x = i >= 0 ? s1.charAt(i--) - '0' : 0;
+            int y = j >= 0 ? s2.charAt(j--) - '0' : 0;
+
+            int sum = x + y + carry;
+            result.append(sum % 10);
+            carry = sum / 10;
+        }
+
+        result.reverse();
+
+        while (result.length() <= scale) {
+            result.insert(0, '0');
+        }
+
+        String answer = result.toString();
+
+        Node head = build(answer.chars()
+                .map(c -> c - '0').toArray());
+
+        int point = answer.length() - scale;
+
+        System.out.println("Sum: " +
+                answer.substring(0, point) +
+                (scale > 0 ? "." + answer.substring(point) : ""));
+
+        System.out.print("Third List: ");
+        print(head);
+
+        return head;
+    }
+
+    static String digits(Node head) {
+        StringBuilder s = new StringBuilder();
+
+        while (head != null) {
+            s.append(head.data);
+            head = head.next;
+        }
+        return s.toString();
+    }
+
+    static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.data);
+            if (head.next != null) System.out.print(" -> ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node a = build(new int[]{1, 2, 3, 4});
+        Node b = build(new int[]{5, 6, 7});
+
+        add(a, 2, b, 2);
+    }
+}
+
+//q2
+
+public class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node rotateRight(Node head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+
+        Node tail = head;
+        int length = 1;
+
+        while (tail.next != null) {
+            tail = tail.next;
+            length++;
+        }
+
+        k = k % length;
+
+        if (k == 0) {
+            return head;
+        }
+
+        tail.next = head;
+
+        int steps = length - k - 1;
+        Node newTail = head;
+
+        for (int i = 0; i < steps; i++) {
+            newTail = newTail.next;
+        }
+
+        Node newHead = newTail.next;
+        newTail.next = null;
+
+        return newHead;
+    }
+
+    static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.data);
+            if (head.next != null) System.out.print(" -> ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node a = new Node(10);
+        a.next = new Node(20);
+        a.next.next = new Node(30);
+        a.next.next.next = new Node(40);
+        a.next.next.next.next = new Node(50);
+
+        Node result = rotateRight(a, 2);
+        print(result);
+    }
+}
+
+//q3
+
+public class Main {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    static Node reverseLastK(Node head, int k) {
+        if (head == null || k <= 1) {
+            return head;
+        }
+
+        Node fast = head;
+
+        for (int i = 0; i < k; i++) {
+            if (fast == null) {
+                return head;
+            }
+            fast = fast.next;
+        }
+
+        Node before = null;
+        Node current = head;
+
+        while (fast != null) {
+            fast = fast.next;
+            before = current;
+            current = current.next;
+        }
+
+        Node previous = null;
+
+        while (current != null) {
+            Node nextNode = current.next;
+            current.next = previous;
+            previous = current;
+            current = nextNode;
+        }
+
+        if (before == null) {
+            return previous;
+        }
+
+        before.next = previous;
+
+        return head;
+    }
+
+    static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.data);
+            if (head.next != null) System.out.print(" -> ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+        head.next.next.next.next = new Node(50);
+        head.next.next.next.next.next = new Node(60);
+
+        Node result = reverseLastK(head, 3);
+        print(result);
+    }
+}
